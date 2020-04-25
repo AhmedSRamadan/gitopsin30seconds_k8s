@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./
+    repoURL: https://github.com/AhmedSRamadan/gitopsin30seconds_k8s.git
+    targetRevision: HEAD
